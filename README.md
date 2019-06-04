@@ -6,7 +6,7 @@
 
 
 3. #### Descargar projecto desde GitLab:
-	> git clone git@gitlab-int.bellbank.com:tools/projectideas.git
+	> git clone <<Repositorio>>
 
 4. #### Instalar dependencias:
 	> cd projectideas
@@ -40,7 +40,7 @@
 	2. ##### Donde dice *'Cambiar'*, poner los data correspondientes. Ejemplo:
 		``` python
 		# Credenciales Base de Datos PostgreSQL
-		export BD_NAME='bbk_ideas'
+		export BD_NAME='bd_ideas'
 		export BD_USER='ideas'
 		export BD_PASS='123456789'
 		export BD_HOST='127.0.0.1'
@@ -56,8 +56,8 @@
 		export LDAP_DOMAIN='example.com'
 		export LDAP_SERVER='ldap://0.0.0.0:0000'
 		export LDAP_PASS_SERVER='123456789'
-		export LDAP_BASE_SEARCH='OU=Bellbank Usuarios,DC=bellbank,DC=com'
-		export LDAP_CONNECTION_USERNAME='CN=servicios,CN=Users,DC=Bellbank,DC=com'
+		export LDAP_BASE_SEARCH='OU="" Usuarios,DC="",DC=com'
+		export LDAP_CONNECTION_USERNAME='CN=servicios,CN=Users,DC="",DC=com'
 		```
 	3. ##### Y por ultimo, ejecutar en la terminar:
 		> source variable
@@ -186,5 +186,5 @@
 
 Ejemplo:
 ``` python
-*/5 * * * * /home/local/BELLBANK/rhernandez/projectIdeas/synchronize_users/prod/synchronize_users.sh
+*/5 * * * * /home/rhernandez/projectIdeas/synchronize_users/prod/synchronize_users.sh
 ```
