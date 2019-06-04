@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	<title>Pagina Principal</title>
+{% endblock title %}
+
+{% block staticCSS %}
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock staticCSS %}
+
+{% block content %}
+<!-- Contenedor de Ideas -->
+<div class="row ">
+	<div id="contenedor" class="">
+		<ul id="list_ideas">
+			{% for ideas in ideas %}
+			<li>
+				<div class="card center">
+					<div class="card-content">
+						<ul>
+							<li class="left">
+								<span class="card-title">{{ ideas.idea.category }}</span>
+							</li>
+						</ul>
+						<p>{{ ideas.idea.description }}</p>
+					</div>
+					<div id="footer" class="card-action row">
+
+						<div id="photo" class="col s6 m6">
+							<ul id="datos">
+								<li>
+									<i class="fas fa-user-circle fa-2x"></i>
+								</li>
+								<li>
+									<p class="author">
+										{% if not ideas.idea.anonimus %} {{ ideas.idea.author }} {% else %} Anónimo {% endif %}
+									</p>
+									<p>{{ ideas.idea.publication_date }}</p>
+								</li>
+							</ul>
+						</div>
+
+						<div id="accion" class="col s6 m6">
+							<ul>
+								<li>
+									<a id="-a_{{ ideas.idea.id }}" name="negative" class="{% if ideas.vote.type == 'negative' %}disabled{% endif %} btn a_round tooltipped" value="{{ ideas.idea.id }}" type_vote="negative" data-tooltip="No me gusta">
+										<i class="far fa-thumbs-down"></i>
+									</a>
+									<p id="-vote_{{ ideas.idea.id }}">{{ ideas.idea.quantity_negative_votes }}</p>
+								</li>
+								<li>
+									<a id="a_{{ ideas.idea.id }}" name="positive" class="{% if ideas.vote.type == 'positive' %}disabled{% endif %} btn a_round tooltipped" value="{{ ideas.idea.id }}" type_vote="positive" data-tooltip="Me gusta">
+										<i class="far fa-thumbs-up"></i>
+									</a>
+									<p id="vote_{{ ideas.idea.id }}">{{ ideas.idea.quantity_positive_votes }}</p>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+</div>
+<!-- Fin Contenedor de Ideas -->
+
+
+{% endblock content %}
+
+{% block staticJS %}
+	<script src="{% static '/js/votes.js' %}"></script>
+	<script src="{% static '/js/autoCompleteCategorie.js' %}"></script>
+{% endblock staticJS %}

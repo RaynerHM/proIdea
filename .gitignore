@@ -1,0 +1,17 @@
+projectIdeas/settings.py
+#log_ideas.log
+iniciar.sh
+variables
+synchronize_users/test
+
+bin
+lib
+include
+__pycache__
+pip-selfcheck.json
+*.pyc
+
+db.sqlite3
+
+*.code-workspace
+.vscode/

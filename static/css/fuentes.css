@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Thin), url("../fuentes/poppins/Poppins-Thin.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins ExtraLight), url("../fuentes/poppins/Poppins-ExtraLight.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Light), url("../fuentes/poppins/Poppins-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Normal), url("../fuentes/poppins/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Medium), url("../fuentes/poppins/Poppins-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins SemiBold), url("../fuentes/poppins/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Bold), url("../fuentes/poppins/Poppins-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins ExtraBold), url("../fuentes/poppins/Poppins-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: local(poppins Black), url("../fuentes/poppins/Poppins-Black.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "kalam";
+  src: local(kalam Light), url("../fuentes/kalam/Kalam-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "kalam";
+  src: local(kalam Regular), url("../fuentes/kalam/Kalam-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "kalam";
+  src: local(kalam Bold), url("../fuentes/kalam/Kalam-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "lato";
+  src: local(lato), url("../fuentes/Lato-Regular.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Biryani";
+  src: local(biryani), url("../fuentes/biryani/Biryani-Black.ttf");
+}

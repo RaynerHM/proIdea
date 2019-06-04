@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Ideas : Iniciar Sesión</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="{% static '/materialize-v1.0.0-rc.2/css/materialize.min.css' %}" media="screen,projection">
+    <link rel="stylesheet" href="{% static '/fuentes/fontawesome-5.2.0-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static '/css/fuentes.css' %}">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+    <link rel="icon" href="{% static '/media/image/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body id="login">
+    <div class="container ">
+        <div class="row" style="display:flex;justify-content:center;align-items:center;margin-top:200px;">
+            <div class=" fondo z-depth-5 center">
+                <form method="POST" action="{% url 'login' %}">{% csrf_token %}
+                    <h4 class="hide-on-small-only">INICIAR SESION</h4>
+                    <!--   Usuario   -->
+                    <div class="input-field">
+                        <i class="prefix fa fa-user fa-3x"></i>
+                        <input id="username" name="username" type="text" required autocomplete="off">
+                        <label for="username" class="active">Usuario</label>
+                    </div>
+
+                    <!--  Clave  -->
+                    <div class="input-field">
+                        <i class="prefix fa fa-key fa-3x"></i>
+                        <input id="password" name="password" type="password" required autocomplete="off">
+                        <label for="password" class="active">Clave</label>
+                    </div>
+
+                    <div class="row">
+                        <!--   Iniciar Sesion   -->
+                        <div class="col m12 s12 center group navform wat-cf">
+                            <button class="btn hoverable waves-effect" type="submit">INICIAR SESION</button>
+                        </div>
+                    </div>
+                </form>
+                {% if message %}
+                <div id="message" class="red ">
+                    {{ message }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="{% static '/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static '/materialize-v1.0.0-rc.2/js/materialize.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#username').focus();
+        });
+    </script>
+
+</body>
+
+</html>

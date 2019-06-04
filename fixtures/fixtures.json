@@ -1,0 +1,26 @@
+[
+	{
+		"model" : "appIdeas.Categorie",
+		"pk" : 1,
+		"fields" : {
+			"name": "Sugerencias",
+			"unique_name": "sugerencias"
+		}
+	},
+	{
+		"model" : "appIdeas.Categorie",
+		"pk" : 2,
+		"fields" : {
+			"name": "Servicios",
+			"unique_name": "servicios"
+		}
+	},
+	{
+		"model" : "appIdeas.Categorie",
+		"pk" : 3,
+		"fields" : {
+			"name": "Mensajeria",
+			"unique_name": "mensajeria"
+		}
+	}
+]

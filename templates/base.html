@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	{% block title %}
+	<!-- Mostrar titulo del template -->
+	{% endblock title %}
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="{% static '/materialize-v1.0.0-rc.2/css/materialize.min.css' %}">
+	<link rel="stylesheet" href="{% static '/fuentes/fontawesome-5.2.0-web/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static '/css/fuentes.css' %}"> 
+	{% block staticCSS %} {% endblock staticCSS %}
+
+	<script src="{% static '/jquery/jquery-3.2.1.min.js' %}"></script>
+	<link rel="icon" href="{% static '/media/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body id="base" style="margin:0;">
+	<div class="navbar-fixed">
+		<nav class="nav-extended">
+			<div class="nav-wrapper">
+				<!--<a href="/" class="brand-logo"><img src="{% static '/media/logo_ideas1.png' %}" style="width: 180px;"></a>-->
+				<ul class="right hide-on-med-and-down">
+
+					<li>
+						<form action="" method="GET" style="display: unset;">
+							<button class="waves-effect waves-teal btn-flat">Todas las Ideas</button>
+							<input type="hidden" id="status" name="status" value="all">
+						</form>
+					</li>
+					<li>
+						<form action="" method="GET" style="display: unset;">
+							<button class="waves-effect waves-teal btn-flat">Ideas Descartadas</button>
+							<input type="hidden" id="status" name="status" value="discarded">
+						</form>
+					</li>
+
+					<li>
+						<form action="" method="GET" style="display: unset;">
+							<button class="waves-effect waves-teal btn-flat">Ideas Aprobadas</button>
+							<input type="hidden" id="status" name="status" value="approved">
+						</form>
+					</li>
+
+					<li>
+						<button type="button" class="dropdown-trigger waves-effect waves-teal btn-flat" data-target='menu'>
+							{{ user }} <i class="fas fa-sort-down"></i>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<ul id='menu' class='dropdown-content'>
+		{% if perms.appIdeas.can_validate_idea %}
+			<li>
+				<a href="{% url 'validate_rrhh' %}">
+					<i class="fas fa-clipboard-check"></i> Validar Ideas
+				</a>
+			</li>
+		{% endif %}
+		<li>
+			<a href="{% url 'logout' %}">
+				<i class="fas fa-power-off"></i> Cerrar Sesión
+			</a>
+		</li>
+	</ul>
+
+	<div class="fixed-action-btn">
+		<img id="rigobellto" src="{% static '/media/rigobellto.gif' %}" width="400px" loop=infinite> 
+		<a id="button_floating" data-target="modal1" class="modal-trigger btn-floating btn-large">
+			<i class="large fas fa-plus"></i>
+		</a>
+	</div>
+
+	<!-- Modal Agregar ideas -->
+	<div id="modal1" class="modal modal-fixed-footer">
+		<form action="{% url 'index' %}" method="POST">{% csrf_token %}
+			<div class="modal-content">
+				<h4>Cuéntanos tus ideas!</h4>
+				<p>Expresa tus ideas para que los demás las conozcan.</p>
+				<div class="row">
+					<div class="input-field col s12">
+						<input name="category_hide" id="category_hide" type="hidden">
+						<input name="category" id="category" type="text" class="autocomplete" required autocomplete="off">
+						<label for="category">Categoria</label>
+					</div>
+					<div class="input-field col s12">
+						<textarea name="description" id="description" data-length="200" class="materialize-textarea"
+							required></textarea>
+						<label for="description">Descripción</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<p class="left">
+					<label>
+						<input name="anonimus" type="checkbox" class="filled-in" />
+						<span>Enviar de forma anónima</span>
+					</label>
+				</p>
+				<button id="btn_send" type="submit" class="right waves-effect waves-green btn">Enviar</button>
+				<button id="btn_cancel" class="waves-effect waves-green btn-flat">Cancelar</button>
+			</div>
+		</form>
+	</div>
+	<input id="inp_quantity" type="hidden" value="{{ quantity }}">
+	<!-- Fin Modal Agregar ideas -->
+	
+	{% block content %}
+	<!-- Block para mostrar el contenido del template-->
+	{% endblock content %}
+		<script src="{% static '/materialize-v1.0.0-rc.2/js/materialize.min.js' %}"></script>
+		<script src="{% static '/js/style.js' %}"></script>
+	{% block staticJS %} {% endblock staticJS %}
+
+</body>
+
+</html>
